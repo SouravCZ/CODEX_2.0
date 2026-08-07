@@ -11,6 +11,10 @@ __pycache__/
 venv/
 .pytest_cache/
 
+# Uploaded media
+backend/uploads/audio/
+backend/uploads/video/
+
 # Node
 node_modules/
 dist/
