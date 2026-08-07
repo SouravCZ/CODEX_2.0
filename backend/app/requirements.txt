@@ -1,0 +1,34 @@
+# Web framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.18
+
+# Database
+sqlalchemy==2.0.36
+psycopg2-binary==2.9.10
+alembic==1.14.0
+
+# Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.2.1
+
+# Validation & config
+pydantic==2.10.3
+pydantic-settings==2.7.0
+python-dotenv==1.0.1
+
+# ML - Emotion Detection
+deepface==0.0.93
+opencv-python-headless==4.10.0.84
+
+# ML - Journal Analysis (free, accurate)
+transformers==4.47.1
+torch==2.5.1
+
+# Utilities
+numpy==1.26.4
+Pillow==11.1.0
+
+# HTTP client (AI narrative provider calls)
+httpx==0.28.1
