@@ -10,6 +10,7 @@ function Login() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [guestOpen, setGuestOpen] = useState(false)
@@ -92,16 +93,30 @@ function Login() {
                     Forgot Password?
                   </a>
                 </div>
-                <input
-                  className={INPUT_CLASS}
-                  id="password"
-                  name="password"
-                  placeholder="••••••••"
-                  required
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="relative">
+                  <input
+                    className={`${INPUT_CLASS} pr-12`}
+                    id="password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                    type={showPassword ? 'text' : 'password'}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <button
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full text-[#EFE4AE]/60 hover:text-[#EFE4AE] hover:bg-[#EFE4AE]/10 transition-colors"
+                    type="button"
+                    onClick={() => setShowPassword((v) => !v)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    aria-pressed={showPassword}
+                    tabIndex="-1"
+                  >
+                    <span className="material-symbols-outlined text-[20px]">
+                      {showPassword ? 'visibility_off' : 'visibility'}
+                    </span>
+                  </button>
+                </div>
               </div>
 
               {error && (

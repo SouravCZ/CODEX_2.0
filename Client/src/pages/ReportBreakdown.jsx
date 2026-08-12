@@ -194,7 +194,7 @@ function ReportBreakdown({
           {channels.map((ch) => (
             <div
               key={ch.key}
-              className="glass-card rounded-[24px] p-md flex flex-col h-full hover:bg-white/5 transition-colors duration-300"
+              className="glass-card card-lift rounded-[24px] p-md flex flex-col h-full hover:border-[#d1c793]/20"
             >
               <div className="w-12 h-12 rounded-full bg-[#d1c793]/10 flex items-center justify-center mb-md text-[#d1c793]">
                 <span className="material-symbols-outlined">{ch.icon}</span>
@@ -316,7 +316,9 @@ function ReportBreakdown({
       <footer className="w-full py-lg mt-auto bg-surface-container-lowest border-t border-outline-variant/10 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-md px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto text-center md:text-left">
           <div className="font-headline-md text-[#d1c793]">Drift Journal</div>
-          <div className="font-body-md text-on-surface-variant">© 2024 Drift Journal. All rights reserved.</div>
+          <div className="font-body-md text-on-surface-variant">
+            © {new Date().getFullYear()} Drift Journal. All rights reserved.
+          </div>
           <div className="flex flex-wrap justify-center gap-sm font-label-sm text-on-surface-variant">
             {['Privacy Policy', 'Terms of Service', 'Medical Disclaimer'].map((label, i) => (
               <span key={label} className="flex items-center gap-sm">

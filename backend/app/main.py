@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from core.config import get_settings
 from db.session import engine, Base
+from api.models import User, JournalEntry, EmotionLog, Insight, VoiceLog, VitalsLog, IncongruenceRecord  # noqa: F401
 from api.routes import auth, emotion, journal, insights, analysis, reports
 
 settings = get_settings()

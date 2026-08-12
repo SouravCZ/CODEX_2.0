@@ -108,9 +108,20 @@ function formatLogDate(iso) {
   return `${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}, ${time}`
 }
 
+function greetingLabel() {
+  const hour = new Date().getHours()
+  if (hour < 12) return 'Good morning'
+  if (hour < 17) return 'Good afternoon'
+  return 'Good evening'
+}
+
+function todayLabel() {
+  return new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+}
+
 function Dashboard({
   userName = 'Ankan',
-  dateLabel = 'October 24, 2024',
+  dateLabel,
   driftStatus,
   driftBody,
   forecast,
@@ -167,6 +178,9 @@ function Dashboard({
         ]
       : [])
 
+  const resolvedDateLabel = dateLabel || todayLabel()
+  const resolvedGreeting = greetingLabel()
+
   return (
     <div className="min-h-screen flex flex-col antialiased" style={{ backgroundColor: '#12281d', color: '#efe4ae' }}>
       <div
@@ -200,9 +214,9 @@ function Dashboard({
       >
         <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pt-md">
           <div>
-            <p className="font-label-md text-[#efe4ae]/70 mb-2">{dateLabel}</p>
+            <p className="font-label-md text-[#efe4ae]/70 mb-2">{resolvedDateLabel}</p>
             <h1 className="font-serif text-5xl md:text-display-lg text-[#efe4ae] tracking-tight">
-              Good evening, {userName}
+              {resolvedGreeting}, {userName}
             </h1>
           </div>
           <button
@@ -254,17 +268,31 @@ function Dashboard({
                   vital_signs
                 </span>
               </div>
-              <div className="mt-6 flex w-full justify-between items-end">
-                {resolvedBars.map((height, i) => (
-                  <div
-                    key={i}
-                    className="w-3 rounded-[2px] transition-all duration-300"
-                    style={{
-                      height: `${height}%`,
-                      backgroundColor: i === resolvedBars.length - 1 ? '#efe4ae' : 'rgba(239, 228, 174, 0.3)',
-                    }}
-                  ></div>
-                ))}
+              <div className="mt-6">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-label-sm text-[#efe4ae]/50 uppercase tracking-wider">
+                    7-day baseline
+                  </span>
+                  <span className="font-label-sm text-[#efe4ae]/50">now</span>
+                </div>
+                <div className="flex w-full justify-between items-end gap-1.5">
+                  {resolvedBars.map((height, i) => (
+                    <div
+                      key={i}
+                      className="group relative flex-1 rounded-[3px] transition-all duration-300 flex items-end"
+                      style={{ height: '56px' }}
+                    >
+                      <div
+                        className="w-full rounded-[3px] transition-all duration-300"
+                        style={{
+                          height: `${height}%`,
+                          backgroundColor:
+                            i === resolvedBars.length - 1 ? '#efe4ae' : 'rgba(239, 228, 174, 0.3)',
+                        }}
+                      ></div>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className="mt-6 pt-4 border-t border-[#efe4ae]/10">
                 <EmotionCard report={latestData} embedded />
@@ -302,7 +330,7 @@ function Dashboard({
                 <MetricDropdown value={trendMetric} onChange={setTrendMetric} />
               </div>
               <div className="flex-grow w-full relative min-h-[250px]">
-                <TrendChart data={trendData} />
+                <TrendChart data={trendData} metric={trendMetric} />
               </div>
             </AnimatedCard>
 
@@ -375,7 +403,7 @@ function Dashboard({
             ))}
           </div>
           <p className="max-w-2xl text-sm opacity-70">
-            © 2024 Drift Journal. Medical Disclaimer: This dashboard is for informational purposes only and
+            © {new Date().getFullYear()} Drift Journal. Medical Disclaimer: This dashboard is for informational purposes only and
             does not substitute professional medical advice, diagnosis, or treatment.
           </p>
         </div>

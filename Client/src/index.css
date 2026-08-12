@@ -146,11 +146,48 @@ body {
   background-color: #121413;
   color: #e2e3e0;
   font-family: "Outfit", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+/* Consistent, theme-aware selection + focus so every screen shares the same feel */
+::selection {
+  background: #eee3ad;
+  color: #201c00;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(238, 227, 173, 0.7);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Atmospheric grain overlay (from the Stitch design system) */
@@ -195,6 +232,17 @@ body::before {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(239, 228, 174, 0.1);
   box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(239, 228, 174, 0.1);
+}
+
+/* Soft hover lift shared by cards across screens */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease,
+    border-color 0.35s ease, background-color 0.35s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 32px 64px -18px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(239, 228, 174, 0.16);
 }
 
 .btn-glow {

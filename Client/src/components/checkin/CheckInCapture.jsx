@@ -180,7 +180,7 @@ function CheckInCapture({ onCancel, onCapture }) {
 
         <section className="bg-[#12281D]/40 backdrop-blur-md w-full max-w-4xl rounded-[32px] p-6 md:p-12 relative z-10 flex flex-col gap-8 shadow-[0_20px_40px_rgba(0,0,0,0.2)] border border-[#EFE4AE]/20">
           <div className="text-center space-y-4">
-            <h1 className="font-instrument text-display-lg-mobile md:text-display-lg text-[#EFE4AE] italic tracking-wide">
+            <h1 className="font-serif text-display-lg-mobile md:text-display-lg text-[#EFE4AE] italic tracking-wide">
               How are you feeling today?
             </h1>
             <p className="font-body-md text-body-md text-[#EFE4AE]/80 max-w-lg mx-auto">

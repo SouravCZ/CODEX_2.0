@@ -68,7 +68,7 @@ function NotFound() {
             </span>
           </nav>
           <div className="font-label-sm text-on-surface-variant mt-sm border-t border-surface-container-high pt-sm w-full max-w-md">
-            © 2024 Drift Journal. All rights reserved.
+            © {new Date().getFullYear()} Drift Journal. All rights reserved.
           </div>
         </div>
       </footer>

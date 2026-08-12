@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     HF_BASE_URL: str = "https://api-inference.huggingface.co"
     HF_TIMEOUT_S: int = 30
 
+    # Local journal sentiment model (transformers pipeline in journal_analyzer)
+    JOURNAL_MODEL: str = "distilbert/distilbert-base-uncased-finetuned-sst-2-english"
+
     # AI Narrative (OpenAI-compatible — OpenRouter by default)
     AI_API_KEY: str = ""
     AI_BASE_URL: str = "https://openrouter.ai/api/v1"

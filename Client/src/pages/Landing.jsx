@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const HERO_GRADIENT =
   'linear-gradient(rgba(18, 40, 29, 0.93), rgba(18, 40, 29, 0.93)), url("/bg-hero.png")'
 const CREAM_GRADIENT =
@@ -34,15 +36,15 @@ function Landing() {
               How It Works
             </a>
           </div>
-          <a
-            className="arrow-btn inline-flex items-center justify-center bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md px-6 py-3 rounded hover:opacity-90 transition-opacity uppercase tracking-widest"
-            href="/signup"
+          <Link
+            className="cursor-pointer arrow-btn inline-flex items-center justify-center bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md px-6 py-3 rounded hover:opacity-90 transition-opacity uppercase tracking-widest"
+            to="/signup"
           >
             Get Started{' '}
             <span className="arrow-icon ml-2 inline-block material-symbols-outlined text-[16px]">
               arrow_forward
             </span>
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -64,24 +66,24 @@ function Landing() {
             X-Ray.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
-            <a
-              className="arrow-btn w-full sm:w-auto inline-flex items-center justify-center bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md px-8 py-4 rounded hover:opacity-90 transition-opacity uppercase tracking-widest"
-              href="/checkin"
+            <Link
+              className="cursor-pointer arrow-btn w-full sm:w-auto inline-flex items-center justify-center bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md px-8 py-4 rounded hover:opacity-90 transition-opacity uppercase tracking-widest"
+              to="/checkin"
             >
               Start a Free Check-In{' '}
               <span className="arrow-icon ml-2 inline-block material-symbols-outlined text-[16px]">
                 arrow_forward
               </span>
-            </a>
-            <a
-              className="arrow-btn w-full sm:w-auto inline-flex items-center justify-center border border-secondary-fixed text-secondary-fixed font-label-md text-label-md px-8 py-4 rounded hover:bg-secondary-fixed/5 transition-colors uppercase tracking-widest"
-              href="/login"
+            </Link>
+            <Link
+              className="cursor-pointer arrow-btn w-full sm:w-auto inline-flex items-center justify-center border border-secondary-fixed text-secondary-fixed font-label-md text-label-md px-8 py-4 rounded hover:bg-secondary-fixed/5 transition-colors uppercase tracking-widest"
+              to="/login"
             >
               Continue as Guest{' '}
               <span className="arrow-icon ml-2 inline-block material-symbols-outlined text-[16px]">
                 arrow_forward
               </span>
-            </a>
+            </Link>
           </div>
           <p className="font-body-md text-sm text-secondary-fixed/60 pt-4">
             Not a medical tool — for reflection.
@@ -104,7 +106,7 @@ function Landing() {
             How It Works
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center text-center p-8 border border-on-secondary-fixed/20 rounded backdrop-blur-md bg-on-secondary-fixed/10">
+            <div className="flex flex-col items-center text-center p-8 border border-on-secondary-fixed/20 rounded backdrop-blur-md bg-on-secondary-fixed/10 card-lift hover:border-on-secondary-fixed/40">
               <div className="w-16 h-16 rounded-full bg-on-secondary-fixed/10 flex items-center justify-center mb-6">
                 <span className="material-symbols-outlined text-3xl">videocam</span>
               </div>
@@ -115,7 +117,7 @@ function Landing() {
                 60s webcam + mic
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-8 border border-on-secondary-fixed/20 rounded backdrop-blur-md bg-on-secondary-fixed/10">
+            <div className="flex flex-col items-center text-center p-8 border border-on-secondary-fixed/20 rounded backdrop-blur-md bg-on-secondary-fixed/10 card-lift hover:border-on-secondary-fixed/40">
               <div className="w-16 h-16 rounded-full bg-on-secondary-fixed/10 flex items-center justify-center mb-6">
                 <span className="material-symbols-outlined text-3xl">monitor_heart</span>
               </div>
@@ -126,7 +128,7 @@ function Landing() {
                 4 signals read &amp; fused
               </p>
             </div>
-            <div className="flex flex-col items-center text-center p-8 border border-on-secondary-fixed/20 rounded backdrop-blur-md bg-on-secondary-fixed/10">
+            <div className="flex flex-col items-center text-center p-8 border border-on-secondary-fixed/20 rounded backdrop-blur-md bg-on-secondary-fixed/10 card-lift hover:border-on-secondary-fixed/40">
               <div className="w-16 h-16 rounded-full bg-on-secondary-fixed/10 flex items-center justify-center mb-6">
                 <span className="material-symbols-outlined text-3xl">self_improvement</span>
               </div>
@@ -182,15 +184,15 @@ function Landing() {
           <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg tracking-tight">
             See what your body already knows.
           </h2>
-          <a
-            className="arrow-btn inline-flex items-center justify-center bg-on-secondary-fixed text-secondary-fixed font-label-md text-label-md px-8 py-4 rounded hover:opacity-90 transition-opacity uppercase tracking-widest"
-            href="/checkin"
+          <Link
+            className="cursor-pointer arrow-btn inline-flex items-center justify-center bg-on-secondary-fixed text-secondary-fixed font-label-md text-label-md px-8 py-4 rounded hover:opacity-90 transition-opacity uppercase tracking-widest"
+            to="/checkin"
           >
             Start Free Check-In{' '}
             <span className="arrow-icon ml-2 inline-block material-symbols-outlined text-[16px]">
               arrow_forward
             </span>
-          </a>
+          </Link>
           <p className="font-body-md text-sm text-on-secondary-fixed/60">
             No signup needed for the demo.
           </p>
@@ -220,7 +222,7 @@ function Landing() {
             </p>
           </div>
           <p className="font-label-md text-label-md mt-8 text-on-surface-variant/40">
-            © 2024 Drift Journal. All rights reserved.
+            © {new Date().getFullYear()} Drift Journal. All rights reserved.
           </p>
         </div>
       </footer>

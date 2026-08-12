@@ -78,7 +78,7 @@ function EmotionCard({ report, embedded = false }) {
   if (embedded) return content
 
   return (
-    <div className="glass-card rounded-[24px] p-6 backdrop-blur-md">
+    <div className="glass-card card-lift rounded-[24px] p-6 backdrop-blur-md">
       {latest ? content : <p className="font-body-md text-[#efe4ae]/60 text-center py-4">
         Complete a check-in to see your emotional signature.
       </p>}

@@ -10,6 +10,7 @@ _sentiment_pipeline = pipeline(
     "sentiment-analysis",
     model=settings.JOURNAL_MODEL,
     top_k=None,
+    framework="pt",
 )
 
 # Emotional tone keywords
